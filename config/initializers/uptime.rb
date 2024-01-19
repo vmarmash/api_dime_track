@@ -1,0 +1,1 @@
+Rails::Application::BOOTED_AT = Time.current

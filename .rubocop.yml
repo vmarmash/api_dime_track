@@ -1,0 +1,80 @@
+require: 
+  - rubocop-rails
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 3.3.0
+  Exclude:
+    - vendor/bundle/**/*
+    - '**/db/schema.rb'
+    - '**/db/**/*'
+    - 'config/**/*'
+    - 'bin/*'
+    - 'config.ru'
+    - 'Rakefile'
+    - 'Gemfile'
+    - 'Gemfile.lock'
+    - '**/app/lib/**/*'
+
+Rails/InverseOf:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Lint/MissingSuper:
+  Enabled: false
+
+Layout/EndOfLine:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Rails/Output:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Bundler/OrderedGems:
+  Enabled: false
+  
+Lint/UnusedMethodArgument:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+  
+Naming/MethodParameterName:
+  MinNameLength: 2
+Layout/LineLength:
+  Max: 120
+Layout/HashAlignment:
+  EnforcedColonStyle: table
+  EnforcedHashRocketStyle: table
+Style/HashSyntax:
+  EnforcedShorthandSyntax: never
+Style/FetchEnvVar:
+  Enabled: false
+Style/OptionalBooleanParameter:
+  Enabled: false
+Naming/InclusiveLanguage:
+  Enabled: false
+Style/OpenStructUse:
+  Enabled: false
+Style/SingleArgumentDig:
+  Enabled: false
+Metrics/ModuleLength:
+  Enabled: false
+Lint/UselessMethodDefinition:
+  Enabled: false
+Style/HashAsLastArrayItem:
+  Enabled: false
+Naming/VariableNumber:
+  Enabled: false
+Metrics/BlockLength:
+  Enabled: false
+
+Style/ReturnNilInPredicateMethodDefinition:
+  Enabled: false
