@@ -13,6 +13,8 @@ gem 'paranoia', '~> 2.6', '>= 2.6.3'
 gem 'sidekiq', '~> 7.2'
 gem 'sidekiq-cron', '~> 1.11'
 
+gem 'devise-api'
+
 
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 gem "bootsnap", require: false
