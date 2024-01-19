@@ -6,7 +6,16 @@ class Cost < ApplicationRecord
   has_many :category_costs, dependent: :destroy
   has_many :categories, through: :category_costs
 
+  after_create :set_rate_vault
+
   enum currency: { hrn: 0, usd: 1, eur: 2 }
+
+  def set_rate_vault
+    rate = ExchangeRate::Actual.new.call
+    self.rate_vault_id = rate.id
+
+    save
+  end
 
   def hrn_amount
     return amount if hrn?

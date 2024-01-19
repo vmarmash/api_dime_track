@@ -17,3 +17,13 @@ en:
       show:
         success: Success
         blank: Cant found cost
+      create:
+        name:
+          blank: Name cant be blank
+          invalid: Name is invalid
+        amount:
+          blank: Amount cant be blank
+          invalid: Amount is invalid
+        currency:
+          blank: Currency symbol cant be blank
+          invalid: Currency symbol is invalid
