@@ -1,13 +1,25 @@
 class CostSerializer < ActiveModel::Serializer
   include ActionView::Helpers::DateHelper
 
-  attributes :id, :name, :amount, :currency, :owner, :created_date
+  attributes :id, :name, :amount, :currency
 
-  def owner
+  attribute :hrn_amount do
+    object.hrn_amount.round
+  end
+
+  attribute :usd_amount do
+    object.usd_amount.round
+  end
+
+  attribute :eur_amount do
+    object.eur_amount.round
+  end
+
+  attribute :owner do
     object.user.name.presence || object.user.email.presence
   end
 
-  def created_date
+  attribute :created_date do
     "#{time_ago_in_words(object.created_at)} ago"
   end
 end

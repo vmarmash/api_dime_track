@@ -30,7 +30,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_19_192050) do
   create_table "costs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "user_id", null: false
     t.string "name", null: false
-    t.string "amount", default: "0"
+    t.integer "amount", default: 0
     t.integer "currency", default: 0
     t.string "rate_vault_id"
     t.datetime "created_at", null: false
@@ -74,6 +74,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_19_192050) do
     t.string "name"
     t.string "phone"
     t.string "locale", default: "uk"
+    t.integer "role", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
