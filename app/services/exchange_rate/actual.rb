@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ExchangeRate
   class Actual
     def call
@@ -7,7 +9,7 @@ module ExchangeRate
     private
 
     def last_rate
-      day_ago = Time.current - 1.day
+      day_ago = 1.day.ago
       record = RateVault.find_by('created_at > ?', day_ago)
       return record if record.present?
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Categories
   class Show < Base
     def items

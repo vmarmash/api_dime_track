@@ -25,7 +25,7 @@ module ExchangeRate
     def cash_currency
       hash = {}
       url_to_hash(CASH_URL).each do |json_cash|
-        hash[json_cash['ccy']] = { buy: json_cash['buy'].to_f.round(2),
+        hash[json_cash['ccy']] = { buy:  json_cash['buy'].to_f.round(2),
                                    sale: json_cash['sale'].to_f.round(2) }
       end
 
@@ -35,7 +35,7 @@ module ExchangeRate
     def bank_currency
       hash = {}
       url_to_hash(BANK_URL).each do |json_bank|
-        hash[json_bank['ccy']] = { buy: json_bank['buy'].to_f.round(2),
+        hash[json_bank['ccy']] = { buy:  json_bank['buy'].to_f.round(2),
                                    sale: json_bank['sale'].to_f.round(2) }
       end
 

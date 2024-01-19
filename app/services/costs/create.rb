@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 module Costs
   class Create < Base
     def call
-      return cost unless category_id.present?
-      
+      return cost if category_id.blank?
+
       create_category_cost
     end
-    
+
     private
 
     def create_category_cost
@@ -19,7 +21,8 @@ module Costs
     end
 
     def cost_params
-      @cost_params ||= params.require(:cost).permit(:name, :amount, :currency, :rate_vault).merge(user_id: current_user.id)
+      @cost_params ||= params.require(:cost).permit(:name, :amount, :currency,
+                                                    :rate_vault).merge(user_id: current_user.id)
     end
 
     def category_id

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Costs
   class Index < Base
     def items
