@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class RateVault < ApplicationRecord
   def average_usd
     rate = JSON.parse usd
