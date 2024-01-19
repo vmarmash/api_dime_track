@@ -2,14 +2,14 @@
 
 module Costs
   class Index < Base
+    validate :costs_present?
+
     def items
-      @items ||= costs
+      costs
     end
 
     def message
-      return 'Success' if items.present?
-
-      'blank'
+      I18n.t('services.costs.index.success')
     end
   end
 end

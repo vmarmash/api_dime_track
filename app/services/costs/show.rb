@@ -2,14 +2,14 @@
 
 module Costs
   class Show < Base
+    validate :cost_present?
+
     def items
-      @items ||= cost
+      cost
     end
 
     def message
-      return 'Success' if items.present?
-
-      'blank'
+      I18n.t('services.costs.show.success')
     end
   end
 end

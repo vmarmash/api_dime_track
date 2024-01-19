@@ -2,6 +2,9 @@
 
 module Categories
   class Create < Base
+    validate :name_ok?
+    validate :description_ok?
+
     def items
       @items ||= current_user.categories.create(category_params)
     end
