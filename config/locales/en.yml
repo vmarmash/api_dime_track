@@ -7,6 +7,9 @@ en:
       show:
         success: Success
         blank: Cant found category
+      create:
+        name:
+          blank: Name cant be blank
     costs:
       index:
         success: Success

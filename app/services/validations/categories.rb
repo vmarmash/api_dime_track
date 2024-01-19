@@ -13,5 +13,15 @@ module Validations
 
       errors.add(:category, I18n.t('services.categories.show.blank'))
     end
+
+    def name_ok?
+      return if params['name'].present?
+
+      errors.add(:category, I18n.t('services.categories.create.name.blank'))
+    end
+
+    def description_ok?
+      # need to do
+    end
   end
 end

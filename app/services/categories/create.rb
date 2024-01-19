@@ -6,13 +6,15 @@ module Categories
     validate :description_ok?
 
     def items
-      @items ||= current_user.categories.create(category_params)
+      serialized_data(serializer, category)
+    end
+
+    def category
+      current_user.categories.create(category_params)
     end
 
     def message
-      return 'Success' if items.present?
-
-      'blank'
+      'Success'
     end
 
     def category_params
