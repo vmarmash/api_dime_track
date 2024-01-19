@@ -16,6 +16,10 @@ class BaseService
     { items: items, message: message }
   end
 
+  def serialized_data(serializer, items)
+    ActiveModelSerializers::SerializableResource.new(items, each_serializer: serializer).as_json
+  end
+
   def success?
     errors.blank?
   end

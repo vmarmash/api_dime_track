@@ -5,7 +5,7 @@ module Categories
     validate :categories_present?
 
     def items
-      categories
+      serialized_data(serializer, categories)
     end
 
     def message

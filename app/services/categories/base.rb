@@ -11,5 +11,9 @@ module Categories
     def categories
       @categories ||= current_user.categories
     end
+
+    def serializer
+      CategorySerializer
+    end
   end
 end

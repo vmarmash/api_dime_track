@@ -5,7 +5,7 @@ module Costs
     validate :costs_present?
 
     def items
-      costs
+      serialized_data(serializer, costs)
     end
 
     def message

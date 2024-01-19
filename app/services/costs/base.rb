@@ -11,5 +11,9 @@ module Costs
     def costs
       @costs ||= current_user.costs
     end
+
+    def serializer
+      CostSerializer
+    end
   end
 end
