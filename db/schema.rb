@@ -15,7 +15,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_19_192050) do
   enable_extension "plpgsql"
 
   create_table "categories", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "user_id", null: false
+    t.uuid "user_id", null: false
     t.string "name"
     t.string "description"
     t.datetime "created_at", null: false
@@ -23,12 +23,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_19_192050) do
   end
 
   create_table "category_costs", id: false, force: :cascade do |t|
-    t.string "category_id"
-    t.string "cost_id"
+    t.uuid "category_id"
+    t.uuid "cost_id"
   end
 
   create_table "costs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "user_id", null: false
+    t.uuid "user_id", null: false
     t.string "name", null: false
     t.integer "amount", default: 0
     t.integer "currency", default: 0

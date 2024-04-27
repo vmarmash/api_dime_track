@@ -22,4 +22,8 @@ class CostSerializer < ActiveModel::Serializer
   attribute :created_date do
     "#{time_ago_in_words(object.created_at)} ago"
   end
+
+  attribute :categories
+
+  has_many :categories
 end
