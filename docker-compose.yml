@@ -1,0 +1,43 @@
+version: '3.4'
+services:
+  postgres:
+    image: "postgres:15.2"
+    restart: always
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
+    ports:
+      - 5432:5432
+    volumes:
+      - ./tmp/postgres_data:/var/lib/postgresql/data
+    networks:
+      - my_network
+  app:
+    image: api_dime_track_image:latest
+    entrypoint: "/app/docker-entrypoint.sh"
+    ports:
+      - 3086:3086
+    depends_on:
+      - postgres
+      - redis
+    volumes:
+      - .:/rails
+      - ruby-bundle-cache:/bundle
+    networks:
+      - my_network
+  redis:
+      image: "redis:7.0.11"
+      ports:
+        - 6379
+      volumes:
+      - ./tmp/redis_data:/var/lib/redis/data
+      networks:
+      - my_network
+
+volumes:
+  ruby-bundle-cache:
+    external: true
+
+networks:
+  my_network:
+    name: api_dime_track
+    driver: bridge
