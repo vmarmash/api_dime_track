@@ -13,6 +13,7 @@ test:
 
 production:
   <<: *default
+  host:     <%= Rails.application.credentials.dig(:postgres, :host) %>
   database: <%= Rails.application.credentials.dig(:postgres, :database_name) %>
   username: <%= Rails.application.credentials.dig(:postgres, :user_name) %>
   password: <%= Rails.application.credentials.dig(:postgres, :password) %>
