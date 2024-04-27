@@ -10,7 +10,8 @@ services:
     volumes:
       - ./tmp/postgres_data:/var/lib/postgresql/data
     networks:
-      - my_network
+      my_network:
+        ipv4_address: 10.5.0.5
   app:
     image: api_dime_track_image:latest
     entrypoint: "/app/docker-entrypoint.sh"
@@ -23,15 +24,18 @@ services:
       - .:/rails
       - ruby-bundle-cache:/bundle
     networks:
-      - my_network
+      my_network:
+        ipv4_address: 10.5.0.6
+
   redis:
-      image: "redis:7.0.11"
-      ports:
-        - 6379
-      volumes:
-      - ./tmp/redis_data:/var/lib/redis/data
-      networks:
-      - my_network
+    image: "redis:7.0.11"
+    ports:
+      - 6379
+    volumes:
+    - ./tmp/redis_data:/var/lib/redis/data
+    networks:
+      my_network:
+        ipv4_address: 10.5.0.7
 
 volumes:
   ruby-bundle-cache:
@@ -41,3 +45,7 @@ networks:
   my_network:
     name: api_dime_track
     driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/16
+         gateway: 10.5.0.1
