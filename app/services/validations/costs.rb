@@ -25,7 +25,10 @@ module Validations
 
     def currency_ok?
       errors.add(:cost, I18n.t('services.costs.create.currency.blank')) if params[:currency].blank?
-      errors.add(:cost, I18n.t('services.costs.create.currency.invalid')) unless Cost.currencies.include? params[:currency]
+      return if Cost.currencies.include? params[:currency]
+
+      errors.add(:cost,
+                 I18n.t('services.costs.create.currency.invalid'))
     end
 
     def category_present?

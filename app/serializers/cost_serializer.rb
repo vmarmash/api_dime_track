@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CostSerializer < ActiveModel::Serializer
   include ActionView::Helpers::DateHelper
 

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class RateVault < ApplicationRecord
-  has_many :costs
+  has_many :costs # rubocop:disable Rails/HasManyOrHasOneDependent
 
   def average_usd
     rate = JSON.parse usd
