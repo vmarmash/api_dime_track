@@ -3,7 +3,7 @@ BRANCH_NAME := $(shell git branch --show-current)
 BUILD_AT := $(shell date -u)
 
 build_image:
-	sudo docker build --build-arg LAST_COMMIT_HASH=$(LAST_COMMIT_HASH) --build-arg BRANCH_NAME=$(BRANCH_NAME) --build-arg BUILD_AT="$(BUILD_AT)" -t api_dime_track_image .
+	docker build --build-arg LAST_COMMIT_HASH=$(LAST_COMMIT_HASH) --build-arg BRANCH_NAME=$(BRANCH_NAME) --build-arg BUILD_AT="$(BUILD_AT)" -t api_dime_track_image .
 
 stop_container:
 	docker stop  api_dime_track && docker rm  api_dime_track

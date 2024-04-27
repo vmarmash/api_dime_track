@@ -8,6 +8,7 @@ ENV LAST_COMMIT_HASH $LAST_COMMIT_HASH
 ENV BRANCH_NAME $BRANCH_NAME
 ENV BUILD_AT $BUILD_AT
 ENV WAIT_HOSTS="redis:6379, postgres:5432"
+ENV RAILS_ENV="production"
 
 WORKDIR /app
 ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.9.0/wait /wait

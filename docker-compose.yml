@@ -36,6 +36,19 @@ services:
     networks:
       my_network:
         ipv4_address: 10.5.0.7
+  
+  sidekiq:
+    depends_on:
+      - 'postgres'
+      - 'redis'
+    image: api_dime_track_image:latest
+    command: bundle exec sidekiq -e production
+    volumes:
+      - ./tmp/redis_data:/var/lib/redis/data
+      - ruby-bundle-cache:/bundle
+    networks:
+      my_network:
+        ipv4_address: 10.5.0.8
 
 volumes:
   ruby-bundle-cache:
